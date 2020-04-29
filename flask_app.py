@@ -2,7 +2,7 @@ import os # para configurar a porta de teste
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from pytz import timezone
+# from pytz import timezone
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 class Apontamento(db.Model):
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 	nome_usuario = db.Column(db.String(15), nullable=True)
-	data = db.Column(db.DateTime, default=datetime.now().astimezone(timezone('America/Sao_Paulo')))
+	data = db.Column(db.DateTime, default=datetime.now) #  ().astimezone(timezone('America/Sao_Paulo')))
 
 	@property
 	def serializar(self):
