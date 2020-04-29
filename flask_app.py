@@ -25,6 +25,7 @@ class Apontamento(db.Model):
 			'data': str(self.data)[11:16]
 		}
 
+db.create_all()
 
 @app.route('/inicio')
 def inicio():
